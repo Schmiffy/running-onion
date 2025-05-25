@@ -57,11 +57,11 @@ function App() {
     setIsLoading(false); // Hide "Loading comic..." text, error message will be shown
   };
 
-  const showNextComic = () => {
-    const nextDate = new Date(currentDisplayDate);
-    nextDate.setDate(currentDisplayDate.getDate() + 1);
-    navigateToDate(nextDate);
-  };
+  // const showNextComic = () => {
+  //   const nextDate = new Date(currentDisplayDate);
+  //   nextDate.setDate(currentDisplayDate.getDate() + 1);
+  //   navigateToDate(nextDate);
+  // };
 
   const showPreviousComic = () => {
     const prevDate = new Date(currentDisplayDate);
@@ -69,32 +69,32 @@ function App() {
     navigateToDate(prevDate);
   };
 
-  const showRandomComic = () => {
-    const startDate = new Date(today.getFullYear(), 0, 1); // January 1st of the current year
-    const endDate = new Date(today); // Today (normalized)
+  // const showRandomComic = () => {
+  //   const startDate = new Date(today.getFullYear(), 0, 1); // January 1st of the current year
+  //   const endDate = new Date(today); // Today (normalized)
 
-    const startMillis = startDate.getTime();
-    let endMillis = endDate.getTime();
+  //   const startMillis = startDate.getTime();
+  //   let endMillis = endDate.getTime();
 
-    if (startMillis > endMillis) { // Should not happen if endDate is today
-        navigateToDate(today);
-        return;
-    }
-    if (startMillis === endMillis) { // If today is Jan 1st
-        navigateToDate(startDate);
-        return;
-    }
+  //   if (startMillis > endMillis) { // Should not happen if endDate is today
+  //       navigateToDate(today);
+  //       return;
+  //   }
+  //   if (startMillis === endMillis) { // If today is Jan 1st
+  //       navigateToDate(startDate);
+  //       return;
+  //   }
     
-    const randomMillis = startMillis + Math.random() * (endMillis - startMillis);
-    const randomDate = new Date(randomMillis);
-    navigateToDate(randomDate);
-  };
+  //   const randomMillis = startMillis + Math.random() * (endMillis - startMillis);
+  //   const randomDate = new Date(randomMillis);
+  //   navigateToDate(randomDate);
+  // };
   
-  const isNextDisabled = () => {
-    const nextDisplayDay = new Date(currentDisplayDate);
-    nextDisplayDay.setDate(nextDisplayDay.getDate() + 1);
-    return nextDisplayDay > today;
-  };
+  // const isNextDisabled = () => {
+  //   const nextDisplayDay = new Date(currentDisplayDate);
+  //   nextDisplayDay.setDate(nextDisplayDay.getDate() + 1);
+  //   return nextDisplayDay > today;
+  // };
 
   return (
     <div className="app-container">
