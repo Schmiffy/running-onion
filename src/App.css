@@ -1,0 +1,122 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Common clean sans-serif font */
+  background-color: #1c1c1c; /* Dark background like explosm */
+  color: #333; /* Default text color for content inside white boxes */
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top */
+  min-height: 100vh;
+}
+
+.app-container {
+  background-color: #ffffff; /* White background for the main content area */
+  padding: 20px 30px 30px 30px;
+  border-radius: 6px; /* Slight rounding */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 100%;
+  max-width: 750px; /* Max width for the comic container, similar to explosm's content width */
+  border: 1px solid #444; /* Border for the main container */
+}
+
+h1 {
+  color: #333; /* Dark text for the title within the white box */
+  font-size: 2em;
+  margin-bottom: 25px;
+  font-weight: bold;
+  text-transform: uppercase; /* Often comic site titles are uppercase */
+  letter-spacing: 1px;
+}
+
+.comic-viewer {
+  margin-bottom: 20px;
+  border: 1px solid #ccc; /* Border around the image itself */
+  padding: 5px; /* Small padding around the image */
+  background-color: #f9f9f9; /* Slight off-white for the immediate image background */
+  min-height: 250px; /* Adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comic-image {
+  max-width: 100%;
+  max-height: 70vh; /* Max height for the comic image */
+  display: block;
+  margin: 0 auto;
+}
+
+.navigation-buttons {
+  margin-bottom: 15px; /* Space between nav and latest button */
+  display: flex; /* Arrange buttons in a row */
+  justify-content: center; /* Center the buttons */
+  gap: 10px; /* Space between buttons */
+}
+
+.navigation-buttons button,
+.latest-button-container button {
+  background-color: #e0e0e0; /* Light gray background for buttons */
+  color: #333; /* Dark text on buttons */
+  border: 1px solid #bbb;
+  padding: 10px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95em;
+  font-weight: bold;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  text-transform: uppercase;
+}
+
+.navigation-buttons button:hover,
+.latest-button-container button:hover {
+  background-color: #d0d0d0; /* Slightly darker on hover */
+  border-color: #aaa;
+}
+
+.navigation-buttons button:disabled {
+  background-color: #f0f0f0;
+  color: #aaa;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
+.latest-button-container {
+  margin-top: 10px; /* Space above the latest button if nav buttons are many */
+  margin-bottom: 20px; /* Space below latest button */
+}
+
+.comic-info {
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.error-message {
+  color: #D8000C; /* Standard error red */
+  font-weight: bold;
+  padding: 15px;
+  border: 1px solid #D8000C;
+  background-color: #FFD2D2; /* Light red background */
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+/* Responsive considerations */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 15px;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
+  .navigation-buttons {
+    flex-direction: column; /* Stack buttons on small screens */
+  }
+  .navigation-buttons button,
+  .latest-button-container button {
+    width: 100%; /* Make buttons full width */
+    margin-bottom: 8px;
+  }
+}
