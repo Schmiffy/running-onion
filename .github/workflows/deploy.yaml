@@ -44,7 +44,7 @@ jobs:
           AWS_REGION: 'ap-southeast-1'
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
 
-      - name: Invalidate CloudFront Distribution (Optional)
+      - name: Invalidate CloudFront Distribution
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
         env:
