@@ -134,12 +134,12 @@ function App() {
         <button onClick={showPreviousComic}>
           &larr; Previous Day
         </button>
-        <button onClick={showRandomComic}>
+        {/* <button onClick={showRandomComic}>
           Random
         </button>
         <button onClick={showNextComic} disabled={isNextDisabled()}>
            Next Day &rarr;
-        </button>
+        </button> */}
       </div>
       <div className="latest-button-container">
         <button onClick={showLatestComic}>
