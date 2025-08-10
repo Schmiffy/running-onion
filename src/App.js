@@ -113,7 +113,7 @@ function App() {
         {!isLoading && imageLoadError && (
           <div className="game-container">
             <p>No comic found for {currentDisplayDate.toLocaleDateString()}. Enjoy the game!</p>
-            <iframe src="/game.html" title="Running Onion Game" width="800" height="600" style={{ border: 'none' }}></iframe>
+            <iframe src="/game.html" title="Running Onion Game" className="game-iframe" width="800" height="600" style={{ border: 'none' }}></iframe>
           </div>
         )}
         {/* If !isLoading && !imageLoadError, and currentComicUrl is valid, the image will be visible

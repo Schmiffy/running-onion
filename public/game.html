@@ -6,12 +6,25 @@
   <title>Running Onion</title>
   <style>
     html, body { margin:0; padding:0; background:#f7f7f7; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    #wrap { display:grid; place-items:center; height:100vh; }
-    canvas { background:#fff; box-shadow: 0 10px 30px rgba(0,0,0,.08); image-rendering: pixelated; border:1px solid #e5e5e5; }
-    .hud { position: fixed; top: 14px; right: 16px; font-size: 14px; color:#444 }
+    #wrap { display:flex; justify-content:center; align-items:center; height:100vh; }
+    canvas { 
+      background:#fff; 
+      box-shadow: 0 10px 30px rgba(0,0,0,.08); 
+      image-rendering: pixelated; 
+      border:1px solid #e5e5e5; 
+      width: 100%;
+      max-width: 960px;
+      height: auto;
+    }
+    .hud { position: fixed; top: 10px; right: 10px; font-size: 16px; color:#444 }
     .hud b { font-weight:600; }
-    .help { position: fixed; bottom: 14px; left: 16px; font-size: 13px; color:#666 }
+    .help { position: fixed; bottom: 10px; left: 10px; font-size: 14px; color:#666 }
     .btn { appearance:none; border:1px solid #d0d0d0; padding:6px 10px; background:#fff; border-radius:6px; cursor:pointer; font-size:13px }
+
+    @media (max-width: 600px) {
+      .hud { font-size: 14px; }
+      .help { font-size: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -19,7 +32,7 @@
     <canvas id="game" width="960" height="270" aria-label="Running Onion game"></canvas>
   </div>
   <div class="hud"><b>Score:</b> <span id="score">0</span>&nbsp;&nbsp; <b>HI:</b> <span id="hiscore">0</span></div>
-  <div class="help">Jump: Space / ↑ / W / Tap • Restart: R • Pause: P</div>
+  <div class="help">Jump: Tap • Restart: R • Pause: P</div>
 <script>
 (function(){
   const W = 960, H = 270; // same vibe as Chrome Dino
