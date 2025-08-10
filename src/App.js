@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
+import availableComics from './comics.json';
 
 // Helper function to format a Date object to YYYYMMDD string
 const formatDateToYYYYMMDD = (date) => {
@@ -69,26 +70,18 @@ function App() {
     navigateToDate(prevDate);
   };
 
-  // const showRandomComic = () => {
-  //   const startDate = new Date(today.getFullYear(), 0, 1); // January 1st of the current year
-  //   const endDate = new Date(today); // Today (normalized)
-
-  //   const startMillis = startDate.getTime();
-  //   let endMillis = endDate.getTime();
-
-  //   if (startMillis > endMillis) { // Should not happen if endDate is today
-  //       navigateToDate(today);
-  //       return;
-  //   }
-  //   if (startMillis === endMillis) { // If today is Jan 1st
-  //       navigateToDate(startDate);
-  //       return;
-  //   }
-    
-  //   const randomMillis = startMillis + Math.random() * (endMillis - startMillis);
-  //   const randomDate = new Date(randomMillis);
-  //   navigateToDate(randomDate);
-  // };
+  const showRandomComic = () => {
+    const availableComics = [
+      '20250524',
+      '20250525',
+    ];
+    const randomComic = availableComics[Math.floor(Math.random() * availableComics.length)];
+    const year = parseInt(randomComic.substring(0, 4), 10);
+    const month = parseInt(randomComic.substring(4, 6), 10) - 1; // Month is 0-indexed
+    const day = parseInt(randomComic.substring(6, 8), 10);
+    const randomDate = new Date(year, month, day);
+    navigateToDate(randomDate);
+  };
   
   // const isNextDisabled = () => {
   //   const nextDisplayDay = new Date(currentDisplayDate);
@@ -122,10 +115,10 @@ function App() {
         {/* Display messages based on state */}
         {isLoading && <p>Loading comic...</p>}
         {!isLoading && imageLoadError && (
-          <p>
-            No comic found for {currentDisplayDate.toLocaleDateString()}.
-            Try another date!
-          </p>
+          <div className="game-container">
+            <p>No comic found for {currentDisplayDate.toLocaleDateString()}. Enjoy the game!</p>
+            <iframe src="/game.html" title="Running Onion Game" width="800" height="600" style={{ border: 'none' }}></iframe>
+          </div>
         )}
         {/* If !isLoading && !imageLoadError, and currentComicUrl is valid, the image will be visible
             because its style would be display: 'block' */}
@@ -134,10 +127,10 @@ function App() {
         <button onClick={showPreviousComic}>
           &larr; Previous Day
         </button>
-        {/* <button onClick={showRandomComic}>
+        <button onClick={showRandomComic}>
           Random
         </button>
-        <button onClick={showNextComic} disabled={isNextDisabled()}>
+        {/* <button onClick={showNextComic} disabled={isNextDisabled()}>
            Next Day &rarr;
         </button> */}
       </div>
