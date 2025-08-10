@@ -71,10 +71,6 @@ function App() {
   };
 
   const showRandomComic = () => {
-    const availableComics = [
-      '20250524',
-      '20250525',
-    ];
     const randomComic = availableComics[Math.floor(Math.random() * availableComics.length)];
     const year = parseInt(randomComic.substring(0, 4), 10);
     const month = parseInt(randomComic.substring(4, 6), 10) - 1; // Month is 0-indexed
